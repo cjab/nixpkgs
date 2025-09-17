@@ -1,22 +1,23 @@
-{
-  lib,
-  stdenv,
-  fetchgit,
-  pkg-config,
-  gettext,
-  cpio,
-  elfutils,
-  python3,
+{ lib
+, stdenv
+, fetchgit
+, pkg-config
+, gettext
+, cpio
+, elfutils
+, python3
+, boost
+,
 }:
 
 stdenv.mkDerivation (finalAttrs: {
   pname = "systemtap";
-  version = "5.2";
+  version = "5.3";
 
   src = fetchgit {
     url = "git://sourceware.org/git/systemtap.git";
     rev = "release-${finalAttrs.version}";
-    hash = "sha256-SUPNarZW8vdK9hQaI2kU+rfKWIPiXB4BvJvRNC1T9tU=";
+    hash = "sha256-W9iJ+hyowqgeq1hGcNQbvPfHpqY0Yt2W/Ng/4p6asxc=";
   };
 
   nativeBuildInputs = [
@@ -29,6 +30,7 @@ stdenv.mkDerivation (finalAttrs: {
     elfutils
     gettext
     python3
+    boost
   ];
   enableParallelBuilding = true;
 
